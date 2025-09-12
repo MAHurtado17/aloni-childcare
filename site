@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Childcare with Aloni — Grass Valley</title>
+  <meta name="description" content="Trusted in‑home childcare in Grass Valley & Nevada City. Simple info and availability calendar to request a time with Aloni." />
+  <!-- Tailwind via CDN (no build step) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Smooth scrolling for anchor links */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+  <!-- Banner -->
+  <div class="bg-emerald-700 text-stone-50 text-center text-sm py-2">
+    Serving Grass Valley · Nevada City · Penn Valley
+  </div>
+
+  <!-- Header / Hero -->
+  <header class="max-w-5xl mx-auto px-4 pt-10 pb-8">
+    <div class="flex items-center justify-between gap-4">
+      <a href="#top" class="font-semibold text-lg">Childcare with <span class="text-emerald-700">Aloni</span></a>
+      <nav class="hidden sm:flex gap-6 text-sm">
+        <a href="#services" class="hover:text-emerald-700">Services</a>
+        <a href="#rates" class="hover:text-emerald-700">Rates</a>
+        <a href="#availability" class="hover:text-emerald-700">Availability</a>
+        <a href="#contact" class="hover:text-emerald-700">Contact</a>
+      </nav>
+      <a href="#availability" class="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium bg-emerald-700 text-white hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-400">Request a Time</a>
+    </div>
+
+    <section class="grid md:grid-cols-2 gap-8 items-center mt-10">
+      <div>
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">Reliable in‑home childcare so parents can breathe easy</h1>
+        <p class="mt-4 text-stone-700">Hi, I’m <strong>Aloni</strong> — experienced with infants through school‑age, CPR/First Aid, and a safe driver. I offer date‑night sitting, part‑time care, and school pick‑ups in Nevada County.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="#availability" class="rounded-xl bg-emerald-700 text-white px-5 py-3 text-sm font-medium hover:bg-emerald-800">Check availability</a>
+          <a href="#contact" class="rounded-xl border border-stone-300 px-5 py-3 text-sm font-medium hover:bg-stone-100">Ask a question</a>
+        </div>
+      </div>
+      <div class="bg-white border border-stone-200 rounded-2xl p-6 shadow-sm">
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start gap-3"><span aria-hidden class="mt-0.5">✅</span> Infant, toddler, and school‑age experience</li>
+          <li class="flex items-start gap-3"><span aria-hidden class="mt-0.5">✅</span> CPR/First Aid</li>
+          <li class="flex items-start gap-3"><span aria-hidden class="mt-0.5">✅</span> Non‑smoker, reliable car, comfortable with pets</li>
+          <li class="flex items-start gap-3"><span aria-hidden class="mt-0.5">✅</span> 3‑hour minimum · simple, clear pricing</li>
+        </ul>
+        <div class="mt-6 text-xs text-stone-500">*This is a personal website to book time directly with Aloni (solo caregiver). Families are the employer of record.*</div>
+      </div>
+    </section>
+  </header>
+
+  <!-- Services -->
+  <section id="services" class="max-w-5xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold">Services</h2>
+    <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <article class="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
+        <h3 class="font-semibold">Date‑Night Sitting</h3>
+        <p class="mt-2 text-sm text-stone-700">Evenings and weekends; dinner, play, bedtime routine, tidy‑up.</p>
+      </article>
+      <article class="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
+        <h3 class="font-semibold">Part‑Time Care</h3>
+        <p class="mt-2 text-sm text-stone-700">Weekly blocks for consistent coverage (after‑school or daytime).</p>
+      </article>
+      <article class="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
+        <h3 class="font-semibold">School Pick‑ups</h3>
+        <p class="mt-2 text-sm text-stone-700">Safe transport, homework help, snack, and play.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Rates -->
+  <section id="rates" class="max-w-5xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold">Rates</h2>
+    <div class="mt-4 bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
+      <ul class="text-sm space-y-2">
+        <li><strong>$22/hr</strong> for one child · <strong>$25/hr</strong> for two children</li>
+        <li>3‑hour minimum · +$3/hr for infants under 12 months</li>
+        <li>Driving kids reimbursed at IRS mileage rate</li>
+        <li>Holiday premium +50%</li>
+      </ul>
+      <p class="text-xs text-stone-500 mt-3">Rates shown are examples; confirm final rate in your booking request.</p>
+    </div>
+  </section>
+
+  <!-- Availability -->
+  <section id="availability" class="max-w-5xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold">Availability</h2>
+    <p class="mt-2 text-sm text-stone-700">Select a block below and send a request. I’ll confirm by text or email.</p>
+
+    <!-- Calendar controls -->
+    <div class="mt-4 flex items-center justify-between">
+      <div class="flex items-center gap-3 text-sm">
+        <button id="prevWeek" class="rounded-lg border border-stone-300 px-3 py-1.5 hover:bg-stone-100" aria-label="Previous week">←</button>
+        <button id="nextWeek" class="rounded-lg border border-stone-300 px-3 py-1.5 hover:bg-stone-100" aria-label="Next week">→</button>
+        <span id="rangeLabel" class="text-stone-600"></span>
+      </div>
+      <div class="text-xs text-stone-500">Timezone: <span id="tzLabel"></span></div>
+    </div>
+
+    <!-- Calendar grid injected here -->
+    <div id="calendar" class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-5xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold">Contact</h2>
+    <div class="mt-4 grid md:grid-cols-2 gap-6">
+      <form id="contactForm" class="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
+        <label class="block text-sm">Your Name
+          <input required name="name" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2" />
+        </label>
+        <label class="block text-sm mt-3">Email
+          <input required name="email" type="email" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2" />
+        </label>
+        <label class="block text-sm mt-3">Phone
+          <input required name="phone" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2" />
+        </label>
+        <label class="block text-sm mt-3">Kids’ ages & notes
+          <textarea name="notes" rows="4" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2"></textarea>
+        </label>
+        <input type="text" name="company" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <button class="mt-4 rounded-xl bg-emerald-700 text-white px-4 py-2 text-sm hover:bg-emerald-800" type="submit">Send message</button>
+        <p id="contactStatus" class="mt-3 text-sm"></p>
+      </form>
+      <div class="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm text-sm">
+        <p><strong>Email:</strong> <a id="emailLink" href="#" class="text-emerald-700 underline">aloni@example.com</a></p>
+        <p class="mt-2"><strong>Phone:</strong> (555) 555‑5555</p>
+        <p class="mt-2 text-stone-600">Prefer to book directly? Pick a block in the calendar and send a request—fastest way to reserve.</p>
+        <details class="mt-4 text-xs text-stone-600">
+          <summary class="cursor-pointer">Privacy</summary>
+          I only use your info to coordinate care. No spam, no sharing. Delete requests anytime.
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="max-w-5xl mx-auto px-4 pb-10 text-xs text-stone-500">
+    <hr class="my-6 border-stone-200" />
+    <p>© <span id="year"></span> Childcare with Aloni. Families are the employer of record. Not legal advice.</p>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div id="modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-4">
+    <div class="bg-white w-full max-w-md rounded-2xl p-6 shadow-xl">
+      <h3 class="text-lg font-semibold">Request this time</h3>
+      <p id="modalSlot" class="mt-1 text-sm text-stone-600"></p>
+      <form id="requestForm" class="mt-4">
+        <div class="grid grid-cols-1 gap-3">
+          <label class="text-sm">Your Name<input required name="name" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2" /></label>
+          <label class="text-sm">Email<input required name="email" type="email" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2" /></label>
+          <label class="text-sm">Phone<input required name="phone" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2" /></label>
+          <label class="text-sm">Kids’ ages & notes<textarea name="notes" rows="3" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2"></textarea></label>
+          <input type="text" name="nickname" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        </div>
+        <div class="mt-5 flex justify-end gap-2">
+          <button type="button" id="closeModal" class="rounded-lg border border-stone-300 px-4 py-2 text-sm hover:bg-stone-100">Cancel</button>
+          <button type="submit" class="rounded-lg bg-emerald-700 text-white px-4 py-2 text-sm hover:bg-emerald-800">Send Request</button>
+        </div>
+        <p id="requestStatus" class="mt-3 text-sm"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Logic: configure availability + email below -->
+  <script>
+    /* =====================
+      QUICK SETUP — EDIT THIS
+    ====================== */
+    const CONTACT_EMAIL = "aloni@example.com"; // TODO: change to your real email
+    const CONTACT_PHONE = "(530) 555-1234"; // TODO: change to your real phone
+
+    // Availability blocks are recurring weekly time ranges in local time (America/Los_Angeles)
+    // Format: "HH:MM-HH:MM" (24h). Adjust to your real weekly availability.
+    const weeklyAvailability = {
+      // 0 = Sunday ... 6 = Saturday
+      0: ["17:00-21:00"],                // Sunday evenings
+      1: ["14:30-18:30"],                // Monday after school
+      2: ["09:00-12:00", "17:00-21:00"],// Tuesday day & evening
+      3: ["14:30-18:30"],                // Wednesday after school
+      4: ["09:00-12:00"],                // Thursday morning
+      5: ["18:00-23:00"],                // Friday evening
+      6: ["09:00-13:00", "17:00-22:00"] // Saturday day & evening
+    };
+
+    // How many weeks to show
+    const WEEKS_VISIBLE = 2; // show next 2 weeks
+
+    /* ===================== */
+
+    // Populate contact info
+    document.getElementById("emailLink").href = `mailto:${CONTACT_EMAIL}`;
+    document.getElementById("emailLink").textContent = CONTACT_EMAIL;
+    document.querySelector("#contact div p:nth-child(2)").innerHTML = `<strong>Phone:</strong> ${CONTACT_PHONE}`;
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Timezone label
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "local time";
+    document.getElementById("tzLabel").textContent = tz;
+
+    // Helpers
+    const pad = (n) => (n < 10 ? "0" + n : "" + n);
+    const fmtDate = (d) => d.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+
+    function startOfDay(d) { const x = new Date(d); x.setHours(0,0,0,0); return x; }
+    function addDays(d, n) { const x = new Date(d); x.setDate(x.getDate() + n); return x; }
+
+    function buildWeeks(offsetWeeks = 0) {
+      const today = startOfDay(new Date());
+      const start = addDays(today, offsetWeeks * 7);
+      const end = addDays(start, (WEEKS_VISIBLE * 7) - 1);
+      document.getElementById('rangeLabel').textContent = `${fmtDate(start)} – ${fmtDate(end)}`;
+
+      const cal = document.getElementById('calendar');
+      cal.innerHTML = '';
+
+      const totalDays = WEEKS_VISIBLE * 7;
+      for (let i = 0; i < totalDays; i++) {
+        const day = addDays(start, i);
+        const weekday = day.getDay();
+        const blocks = weeklyAvailability[weekday] || [];
+
+        const card = document.createElement('article');
+        card.className = 'bg-white border border-stone-200 rounded-2xl p-5 shadow-sm flex flex-col';
+        const h = document.createElement('h3');
+        h.className = 'font-semibold';
+        h.textContent = fmtDate(day);
+        card.appendChild(h);
+
+        const wrap = document.createElement('div');
+        wrap.className = 'mt-3 flex flex-wrap gap-2';
+
+        if (blocks.length === 0) {
+          const none = document.createElement('p');
+          none.className = 'text-sm text-stone-500';
+          none.textContent = 'No availability';
+          wrap.appendChild(none);
+        } else {
+          for (const b of blocks) {
+            const btn = document.createElement('button');
+            btn.className = 'rounded-lg border border-stone-300 px-3 py-1.5 text-sm hover:bg-stone-100';
+            const label = humanizeBlock(b);
+            btn.textContent = label;
+            btn.addEventListener('click', () => openModal(day, b));
+            wrap.appendChild(btn);
+          }
+        }
+        card.appendChild(wrap);
+
+        const small = document.createElement('p');
+        small.className = 'mt-3 text-xs text-stone-500';
+        small.textContent = '3‑hour minimum';
+        card.appendChild(small);
+
+        cal.appendChild(card);
+      }
+    }
+
+    function humanizeBlock(block) {
+      // "17:00-21:00" → "5:00–9:00 pm"
+      const [s,e] = block.split('-');
+      const d = new Date();
+      const [sh, sm] = s.split(':').map(Number);
+      const [eh, em] = e.split(':').map(Number);
+      const sDate = new Date(d.getFullYear(), d.getMonth(), d.getDate(), sh, sm);
+      const eDate = new Date(d.getFullYear(), d.getMonth(), d.getDate(), eh, em);
+      const sText = sDate.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+      const eText = eDate.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+      return `${sText} – ${eText}`;
+    }
+
+    // Modal logic
+    let weekOffset = 0;
+    const modal = document.getElementById('modal');
+    const modalSlot = document.getElementById('modalSlot');
+    const requestForm = document.getElementById('requestForm');
+    const requestStatus = document.getElementById('requestStatus');
+
+    function openModal(day, block) {
+      const [s,e] = block.split('-');
+      const dateLabel = day.toLocaleDateString([], { weekday:'long', month:'long', day:'numeric' });
+      modal.dataset.dateISO = day.toISOString();
+      modal.dataset.block = block;
+      modalSlot.textContent = `${dateLabel}, ${humanizeBlock(block)}`;
+      requestStatus.textContent = '';
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      requestForm.reset();
+    }
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+
+    requestForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(requestForm);
+      if (fd.get('nickname')) return; // honeypot
+
+      const name = fd.get('name');
+      const email = fd.get('email');
+      const phone = fd.get('phone');
+      const notes = (fd.get('notes') || '').toString();
+
+      const dateISO = modal.dataset.dateISO;
+      const block = modal.dataset.block;
+      const when = new Date(dateISO);
+      const whenLabel = `${when.toLocaleDateString([], { weekday:'long', month:'long', day:'numeric' })}, ${humanizeBlock(block)}`;
+
+      // Compose a mailto (no backend needed). Optionally replace with Formspree later.
+      const subject = encodeURIComponent(`Booking request: ${whenLabel}`);
+      const bodyLines = [
+        `Hello Aloni,`,
+        `\nI’d like to request this time: ${whenLabel}.`,
+        `\nParent: ${name}`,
+        `Email: ${email}`,
+        `Phone: ${phone}`,
+        notes ? `Notes: ${notes}` : '',
+        `\n(If this time is taken, please share nearby options.)`
+      ].filter(Boolean);
+      const body = encodeURIComponent(bodyLines.join('\n'));
+      const url = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+
+      // Try opening default mail client
+      window.location.href = url;
+      requestStatus.textContent = "Opening your email app… If nothing happens, copy the details into an email to " + CONTACT_EMAIL + ".";
+
+      // Close after a short delay for UX
+      setTimeout(closeModal, 1200);
+    });
+
+    // Contact form → mailto (fallback if no scheduling chosen)
+    const contactForm = document.getElementById('contactForm');
+    const contactStatus = document.getElementById('contactStatus');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(contactForm);
+      if (fd.get('company')) return; // honeypot
+      const subject = encodeURIComponent('Childcare inquiry');
+      const body = encodeURIComponent([
+        `Hello Aloni,`,
+        `\nMy name is ${fd.get('name')}.`,
+        `Email: ${fd.get('email')}  Phone: ${fd.get('phone')}`,
+        `Notes: ${fd.get('notes') || ''}`
+      ].join('\n'));
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+      contactStatus.textContent = 'Opening your email app…';
+      setTimeout(() => contactForm.reset(), 1500);
+    });
+
+    // Pagination
+    document.getElementById('prevWeek').addEventListener('click', () => { weekOffset = Math.max(0, weekOffset - 1); buildWeeks(weekOffset); });
+    document.getElementById('nextWeek').addEventListener('click', () => { weekOffset += 1; buildWeeks(weekOffset); });
+
+    // Initial render
+    buildWeeks(0);
+  </script>
+
+  <!--
+  ============================
+  OPTIONAL: Embed a scheduler
+  ============================
+  If you prefer a hosted scheduler (free tiers exist), replace the calendar section’s grid with the provider’s embed code.
+  Example for Calendly (free):
+
+  1) Create a Calendly account and an event type.
+  2) Click "Add to Website" → "Inline Embed" → copy the code.
+  3) Paste it where the <div id="calendar"> lives.
+
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <div class="calendly-inline-widget" data-url="https://calendly.com/YOUR_USERNAME/30min" style="min-width:320px;height:700px;"></div>
+
+  -->
+</body>
+</html>
