@@ -4,9 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Childcare with Aloni — Grass Valley</title>
-  <meta name="description" content="Trusted in-home childcare in Grass Valley & Nevada City. Simple info and availability calendar to request a time with Aloni." />
+  <meta name="description" content="Trusted in-home childcare in Placer and Nevada County. Simple info and an easy request flow to contact Aloni." />
+  <!-- Tailwind via CDN (no build step) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <style> html { scroll-behavior: smooth; } </style>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
 <body class="bg-stone-50 text-stone-800">
   <!-- Banner -->
@@ -30,7 +33,10 @@
     <section class="grid md:grid-cols-2 gap-8 items-center mt-10">
       <div>
         <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">Reliable in-home childcare so parents can breathe easy</h1>
-        <p class="mt-4 text-stone-700">Hi, I’m <strong>Aloni</strong> — experienced with infants through school-age, CPR/First Aid, and a safe driver. I offer date-night sitting, part-time care, and school pick-ups in Nevada County.</p>
+        <p class="mt-4 text-stone-700">
+          Hi, I’m <strong>Aloni</strong> — experienced with infants through school-age, CPR/First Aid, and a safe driver.
+          I offer date-night sitting, part-time care, and school pick-ups in Placer and Nevada County.
+        </p>
         <div class="mt-6 flex gap-3">
           <a href="#availability" class="rounded-xl bg-emerald-700 text-white px-5 py-3 text-sm font-medium hover:bg-emerald-800">Check availability</a>
           <a href="#contact" class="rounded-xl border border-stone-300 px-5 py-3 text-sm font-medium hover:bg-stone-100">Ask a question</a>
@@ -43,7 +49,7 @@
           <li class="flex items-start gap-3"><span aria-hidden class="mt-0.5">✅</span> Non-smoker, reliable car, comfortable with pets</li>
           <li class="flex items-start gap-3"><span aria-hidden class="mt-0.5">✅</span> 3-hour minimum · simple, clear pricing</li>
         </ul>
-        <div class="mt-6 text-xs text-stone-500">*This is a personal website to book time directly with Aloni (solo caregiver). Families are the employer of record.*</div>
+        <div class="mt-6 text-xs text-stone-500">*This is a personal site to book time directly with Aloni (solo caregiver). Families are the employer of record.*</div>
       </div>
     </section>
   </header>
@@ -86,6 +92,7 @@
     <h2 class="text-2xl font-bold">Availability</h2>
     <p class="mt-2 text-sm text-stone-700">Select a block below and send a request. I’ll confirm by text or email.</p>
 
+    <!-- Calendar controls -->
     <div class="mt-4 flex items-center justify-between">
       <div class="flex items-center gap-3 text-sm">
         <button id="prevWeek" class="rounded-lg border border-stone-300 px-3 py-1.5 hover:bg-stone-100" aria-label="Previous week">←</button>
@@ -95,6 +102,7 @@
       <div class="text-xs text-stone-500">Timezone: <span id="tzLabel"></span></div>
     </div>
 
+    <!-- Calendar grid injected here -->
     <div id="calendar" class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
   </section>
 
@@ -102,7 +110,7 @@
   <section id="contact" class="max-w-5xl mx-auto px-4 py-10">
     <h2 class="text-2xl font-bold">Contact</h2>
     <div class="mt-4 grid md:grid-cols-2 gap-6">
-      <!-- UPDATE: Formspree form -->
+      <!-- Contact form (Formspree) -->
       <form action="https://formspree.io/f/mblzkgrg" method="POST"
             class="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
         <label class="block text-sm">Your Name
@@ -161,26 +169,31 @@
     </div>
   </div>
 
+  <!-- Owner Panel (hidden unless ?owner=1) -->
+  <div id="ownerPanel"
+       class="hidden fixed bottom-4 right-4 z-50 rounded-xl bg-white/95 border border-stone-300 shadow-lg p-3 text-sm">
+    <div class="font-semibold mb-2">Owner quick links</div>
+    <div class="grid gap-2">
+      <a class="underline text-emerald-700" target="_blank"
+         href="https://github.com/MAHurtado17/alonis-childcare/edit/main/availability.json">Edit availability.json</a>
+      <a class="underline text-emerald-700" target="_blank"
+         href="https://formspree.io/forms/mblzkgrg/submissions">View contact form submissions</a>
+      <!-- If you create a separate booking form, add its submissions link too:
+      <a class="underline text-emerald-700" target="_blank"
+         href="https://formspree.io/forms/YOUR_BOOKING_FORM_ID/submissions">View booking requests</a>
+      -->
+    </div>
+  </div>
+
   <!-- Logic -->
   <script>
     /* =====================
       QUICK SETUP — EDIT THIS
     ====================== */
-    const CONTACT_EMAIL = "Aloni@alonislittleden.com";   // UPDATE
-    const CONTACT_PHONE = "916-879-3483";                // UPDATE
-
-    // Weekly availability Aloni can edit anytime:
-    const weeklyAvailability = {
-      0: ["17:00-21:00"],
-      1: ["14:30-18:30"],
-      2: ["09:00-12:00", "17:00-21:00"],
-      3: ["14:30-18:30"],
-      4: ["09:00-12:00"],
-      5: ["18:00-23:00"],
-      6: ["09:00-13:00", "17:00-22:00"]
-    };
-
-    const WEEKS_VISIBLE = 2;
+    const CONTACT_EMAIL = "Aloni@alonislittleden.com";
+    const CONTACT_PHONE = "916-879-3483";
+    // You can use a separate Formspree endpoint for booking requests if you like:
+    const BOOKING_FORMSPREE_ENDPOINT = "https://formspree.io/f/mblzkgrg"; // change if you make a dedicated booking form
 
     // Populate contact info (sidebar + footer)
     document.getElementById("emailLink").href = `mailto:${CONTACT_EMAIL}`;
@@ -197,7 +210,24 @@
     const startOfDay = (d) => { const x = new Date(d); x.setHours(0,0,0,0); return x; };
     const addDays = (d,n) => { const x = new Date(d); x.setDate(x.getDate()+n); return x; };
 
+    // Availability loaded from availability.json (so Aloni can edit without code)
+    let weeklyAvailability = {}; // will load from JSON
+
+    async function loadAvailability() {
+      try {
+        const res = await fetch('./availability.json', { cache: 'no-store' });
+        weeklyAvailability = await res.json();
+        buildWeeks(0);
+      } catch (e) {
+        console.error('Availability load failed:', e);
+        // Safe fallback: empty schedule
+        weeklyAvailability = { 0:[],1:[],2:[],3:[],4:[],5:[],6:[] };
+        buildWeeks(0);
+      }
+    }
+
     function buildWeeks(offsetWeeks = 0) {
+      const WEEKS_VISIBLE = 2;
       const today = startOfDay(new Date());
       const start = addDays(today, offsetWeeks * 7);
       const end = addDays(start, (WEEKS_VISIBLE * 7) - 1);
@@ -248,6 +278,7 @@
     }
 
     function humanizeBlock(block) {
+      // "17:00-21:00" → "5:00 – 9:00 PM"
       const [s,e] = block.split('-');
       const d = new Date();
       const [sh, sm] = s.split(':').map(Number);
@@ -259,7 +290,7 @@
       return `${sText} – ${eText}`;
     }
 
-    // Modal logic for booking request (still uses mailto)
+    // Modal logic
     let weekOffset = 0;
     const modal = document.getElementById('modal');
     const modalSlot = document.getElementById('modalSlot');
@@ -282,43 +313,55 @@
     }
     document.getElementById('closeModal').addEventListener('click', closeModal);
 
-    requestForm.addEventListener('submit', (e) => {
+    // Booking form → send to Formspree as JSON (so Aloni accepts/declines from her inbox)
+    requestForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const fd = new FormData(requestForm);
-      if (fd.get('nickname')) return;
+      if (fd.get('nickname')) return; // honeypot
 
-      const name = fd.get('name');
+      const name  = fd.get('name');
       const email = fd.get('email');
       const phone = fd.get('phone');
       const notes = (fd.get('notes') || '').toString();
 
       const when = new Date(modal.dataset.dateISO);
-      const whenLabel = `${when.toLocaleDateString([], { weekday:'long', month:'long', day:'numeric' })}, ${humanizeBlock(modal.dataset.block)}`;
+      const block = modal.dataset.block;
+      const whenLabel = `${when.toLocaleDateString([], { weekday:'long', month:'long', day:'numeric' })}, ${humanizeBlock(block)}`;
 
-      const subject = encodeURIComponent(`Booking request: ${whenLabel}`);
-      const bodyLines = [
-        `Hello Aloni,`,
-        `\nI’d like to request this time: ${whenLabel}.`,
-        `\nParent: ${name}`,
-        `Email: ${email}`,
-        `Phone: ${phone}`,
-        notes ? `Notes: ${notes}` : '',
-        `\n(If this time is taken, please share nearby options.)`
-      ].filter(Boolean);
-      const body = encodeURIComponent(bodyLines.join('\n'));
-      const url = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-      window.location.href = url;
-      requestStatus.textContent = "Opening your email app… If nothing happens, copy the details into an email to " + CONTACT_EMAIL + ".";
-      setTimeout(closeModal, 1200);
+      const payload = { name, email, phone, notes, requested_time: whenLabel };
+
+      try {
+        const resp = await fetch(BOOKING_FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (resp.ok) {
+          requestStatus.textContent = "Request sent! We’ll confirm by email/text.";
+          setTimeout(closeModal, 1200);
+        } else {
+          requestStatus.textContent = "Something went wrong. Please email us at " + CONTACT_EMAIL + ".";
+        }
+      } catch (err) {
+        requestStatus.textContent = "Network issue. Please email us at " + CONTACT_EMAIL + ".";
+      }
     });
 
-    // NOTE: removed the old contactForm.addEventListener submit handler
-    // so the Contact form posts to Formspree normally.
-
+    // Calendar pagination
     document.getElementById('prevWeek').addEventListener('click', () => { weekOffset = Math.max(0, weekOffset - 1); buildWeeks(weekOffset); });
     document.getElementById('nextWeek').addEventListener('click', () => { weekOffset += 1; buildWeeks(weekOffset); });
 
-    buildWeeks(0);
+    // Owner Panel toggle (add ?owner=1 to URL)
+    (function(){
+      const params = new URLSearchParams(location.search);
+      if (params.get('owner') === '1') {
+        document.getElementById('ownerPanel').classList.remove('hidden');
+      }
+    })();
+
+    // Initial render (loads availability from JSON)
+    loadAvailability();
   </script>
 </body>
 </html>
