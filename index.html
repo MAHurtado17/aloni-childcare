@@ -3,59 +3,74 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Childcare with Aloni — Grass Valley</title>
-  <meta name="description" content="Trusted in-home childcare in Placer and Nevada County. Simple info and an easy scheduler to request time with Aloni." />
-  <!-- Tailwind via CDN -->
+  <title>Aloni’s Little Den — Babysitting & Nanny Care</title>
+  <meta name="description" content="Warm, reliable in-home childcare in Placer & Nevada County. Simple info and an easy request form to contact Aloni." />
+  <meta name="theme-color" content="#E7A6B5" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Calendly embed -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-  <style> html { scroll-behavior: smooth; } </style>
+  <style>
+    /* Flyer-matched palette (using Tailwind arbitrary colors below) */
+    :root{
+      --rose:#E7A6B5;         /* buttons / accents */
+      --rose-dark:#D68FA1;    /* hover */
+      --rose-verylight:#FFF5F7; /* page background */
+      --card:#FFFBFB;         /* cards */
+      --ink:#4B3B33;          /* main text (warm brown) */
+      --ink-soft:#7A5E54;     /* secondary text */
+      --line:#F4D8DE;         /* soft borders */
+    }
+    html{scroll-behavior:smooth}
+  </style>
 </head>
-<body class="bg-stone-50 text-stone-800">
-  <!-- Banner -->
-  <div class="bg-emerald-700 text-stone-50 text-center text-sm py-2">
-    Serving Grass Valley · Nevada City · Penn Valley
+<body class="min-h-screen bg-[#FFF5F7] text-[#4B3B33]">
+  <!-- Top strip -->
+  <div class="w-full bg-[#E7A6B5] text-white text-center text-sm py-2">
+    Serving <strong>Placer</strong> & <strong>Nevada County</strong>
   </div>
 
   <!-- Header / Hero -->
   <header class="max-w-5xl mx-auto px-4 pt-10 pb-8">
     <div class="flex items-center justify-between gap-4">
-      <a href="#top" class="font-semibold text-lg">Childcare with <span class="text-emerald-700">Aloni</span></a>
+      <a href="#top" class="font-semibold text-lg tracking-tight">
+        <span class="align-middle">🧸</span> Aloni’s Little Den
+      </a>
       <nav class="hidden sm:flex gap-6 text-sm">
-        <a href="#services" class="hover:text-emerald-700">Services</a>
-        <a href="#rates" class="hover:text-emerald-700">Rates</a>
-        <a href="#availability" class="hover:text-emerald-700">Availability</a>
-        <a href="#contact" class="hover:text-emerald-700">Contact</a>
+        <a href="#services" class="hover:text-[#D68FA1]">Services</a>
+        <a href="#rates" class="hover:text-[#D68FA1]">Rates</a>
+        <a href="#contact" class="hover:text-[#D68FA1]">Contact</a>
       </nav>
-      <a href="#availability"
-         class="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium bg-emerald-700 text-white hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-400"
-         onclick="openCalendly(); return false;">Request a Time</a>
+      <a href="#contact" class="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium bg-[#E7A6B5] text-white hover:bg-[#D68FA1] focus:outline-none focus:ring-2 focus:ring-[#E7A6B5]/40">
+        Request Care
+      </a>
     </div>
 
     <section class="grid md:grid-cols-2 gap-8 items-center mt-10">
       <div>
         <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">
-          Reliable in-home childcare so parents can breathe easy
+          Cozy, reliable in-home childcare so parents can breathe easy
         </h1>
-        <p class="mt-4 text-stone-700">
-          Hi, I’m <strong>Aloni</strong> — experienced with infants through school-age, CPR/First Aid, and a safe driver.
-          I offer date-night sitting, part-time care, and school pick-ups in Placer and Nevada County.
+        <p class="mt-4 text-[#7A5E54]">
+          Hi, I’m <strong>Aloni</strong>—experienced with infants through school-age, CPR/First Aid trained, and a safe driver.
+          I offer date-night sitting, part-time care, and school pick-ups across Placer & Nevada County.
+        </p>
+        <p class="mt-3 italic text-[#7A5E54]">
+          “Where little hearts grow, one cozy day at a time.” <span class="not-italic">♡</span>
         </p>
         <div class="mt-6 flex gap-3">
-          <a href="#availability" class="rounded-xl bg-emerald-700 text-white px-5 py-3 text-sm font-medium hover:bg-emerald-800"
-             onclick="openCalendly(); return false;">Check availability</a>
-          <a href="#contact" class="rounded-xl border border-stone-300 px-5 py-3 text-sm font-medium hover:bg-stone-100">Ask a question</a>
+          <a href="#contact" class="rounded-xl bg-[#E7A6B5] text-white px-5 py-3 text-sm font-medium hover:bg-[#D68FA1]">Request care</a>
+          <a href="mailto:Aloni@alonislittleden.com" class="rounded-xl border border-[#F4D8DE] px-5 py-3 text-sm font-medium hover:bg-[#FFFBFB]">Email Aloni</a>
         </div>
       </div>
-      <div class="bg-white border border-stone-200 rounded-2xl p-6 shadow-sm">
+
+      <div class="bg-[#FFFBFB] border border-[#F4D8DE] rounded-2xl p-6 shadow-sm">
         <ul class="space-y-3 text-sm">
           <li class="flex items-start gap-3"><span aria-hidden class="mt-0.5">✅</span> Infant, toddler, and school-age experience</li>
-          <li class="flex items-start gap-3"><span aria-hidden class="mt-0.5">✅</span> CPR/First Aid</li>
+          <li class="flex items-start gap-3"><span aria-hidden class="mt-0.5">✅</span> CPR/First Aid trained</li>
           <li class="flex items-start gap-3"><span aria-hidden class="mt-0.5">✅</span> Non-smoker, reliable car, comfortable with pets</li>
           <li class="flex items-start gap-3"><span aria-hidden class="mt-0.5">✅</span> 3-hour minimum · simple, clear pricing</li>
         </ul>
-        <div class="mt-6 text-xs text-stone-500">*This is a personal site to book time directly with Aloni (solo caregiver). Families are the employer of record.*</div>
+        <div class="mt-6 text-xs text-[#7A5E54]">
+          *Personal site to book time directly with Aloni (solo caregiver). Families are the employer of record.*
+        </div>
       </div>
     </section>
   </header>
@@ -64,51 +79,33 @@
   <section id="services" class="max-w-5xl mx-auto px-4 py-10">
     <h2 class="text-2xl font-bold">Services</h2>
     <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <article class="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
+      <article class="bg-[#FFFBFB] border border-[#F4D8DE] rounded-2xl p-5 shadow-sm">
         <h3 class="font-semibold">Date-Night Sitting</h3>
-        <p class="mt-2 text-sm text-stone-700">Evenings and weekends; dinner, play, bedtime routine, tidy-up.</p>
+        <p class="mt-2 text-sm text-[#7A5E54]">Evenings & weekends; dinner, play, bedtime routine, tidy-up.</p>
       </article>
-      <article class="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
+      <article class="bg-[#FFFBFB] border border-[#F4D8DE] rounded-2xl p-5 shadow-sm">
         <h3 class="font-semibold">Part-Time Care</h3>
-        <p class="mt-2 text-sm text-stone-700">Weekly blocks for consistent coverage (after-school or daytime).</p>
+        <p class="mt-2 text-sm text-[#7A5E54]">Weekly blocks for consistent coverage (after-school or daytime).</p>
       </article>
-      <article class="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
+      <article class="bg-[#FFFBFB] border border-[#F4D8DE] rounded-2xl p-5 shadow-sm">
         <h3 class="font-semibold">School Pick-ups</h3>
-        <p class="mt-2 text-sm text-stone-700">Safe transport, homework help, snack, and play.</p>
+        <p class="mt-2 text-sm text-[#7A5E54]">Safe transport, homework help, snack, and play.</p>
       </article>
     </div>
   </section>
 
-  <!-- Rates -->
+  <!-- Rates (Updated) -->
   <section id="rates" class="max-w-5xl mx-auto px-4 py-10">
     <h2 class="text-2xl font-bold">Rates</h2>
-    <div class="mt-4 bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
+    <div class="mt-4 bg-[#FFFBFB] border border-[#F4D8DE] rounded-2xl p-5 shadow-sm">
       <ul class="text-sm space-y-2">
-        <li><strong>$22/hr</strong> for one child · <strong>$25/hr</strong> for two children</li>
+        <li><strong>$25/hr</strong> for one child (minimum)</li>
+        <li><strong>$30/hr</strong> for two children</li>
         <li>3-hour minimum · +$3/hr for infants under 12 months</li>
         <li>Driving kids reimbursed at IRS mileage rate</li>
         <li>Holiday premium +50%</li>
       </ul>
-      <p class="text-xs text-stone-500 mt-3">Rates shown are examples; confirm final rate in your booking request.</p>
-    </div>
-  </section>
-
-  <!-- Availability (Calendly) -->
-  <section id="availability" class="max-w-5xl mx-auto px-4 py-10">
-    <h2 class="text-2xl font-bold">Availability</h2>
-    <p class="mt-2 text-sm text-stone-700">
-      Choose a time below. You’ll get an email confirmation after booking.
-    </p>
-
-    <!-- ✳️ Replace CALENDLY_URL with your real link -->
-    <div class="mt-6">
-      <div class="calendly-inline-widget"
-           data-url="CALENDLY_URL?hide_gdpr_banner=1"
-           style="min-width:320px;height:720px;"></div>
-    </div>
-
-    <div class="mt-4 text-xs text-stone-500">
-      Tip: If you don’t see a time that works, use the contact form to request a custom slot.
+      <p class="text-xs text-[#7A5E54] mt-3">Rates shown are typical; confirm the final rate in your booking request.</p>
     </div>
   </section>
 
@@ -116,87 +113,55 @@
   <section id="contact" class="max-w-5xl mx-auto px-4 py-10">
     <h2 class="text-2xl font-bold">Contact</h2>
     <div class="mt-4 grid md:grid-cols-2 gap-6">
-      <!-- Formspree contact form -->
+      <!-- Formspree form -->
       <form action="https://formspree.io/f/mblzkgrg" method="POST"
-            class="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
-        <input type="hidden" name="_subject" value="New message from Aloni’s Little Den">
+            class="bg-[#FFFBFB] border border-[#F4D8DE] rounded-2xl p-5 shadow-sm">
+        <input type="hidden" name="_subject" value="Childcare Request — Aloni’s Little Den">
         <label class="block text-sm">Your Name
-          <input required name="name" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2" />
+          <input required name="name" class="mt-1 w-full rounded-lg border border-[#EFDDE2] px-3 py-2 bg-white" />
         </label>
         <label class="block text-sm mt-3">Email
-          <input required name="_replyto" type="email" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2" />
+          <input required name="_replyto" type="email" class="mt-1 w-full rounded-lg border border-[#EFDDE2] px-3 py-2 bg-white" />
         </label>
         <label class="block text-sm mt-3">Phone
-          <input name="phone" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2" />
+          <input name="phone" class="mt-1 w-full rounded-lg border border-[#EFDDE2] px-3 py-2 bg-white" />
         </label>
         <label class="block text-sm mt-3">Message / Kids’ ages & notes
-          <textarea name="message" rows="4" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2"></textarea>
+          <textarea name="message" rows="4" class="mt-1 w-full rounded-lg border border-[#EFDDE2] px-3 py-2 bg-white"></textarea>
         </label>
-        <input type="text" name="company" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <button class="mt-4 rounded-xl bg-emerald-700 text-white px-4 py-2 text-sm hover:bg-emerald-800" type="submit">
-          Send message
+        <button class="mt-4 rounded-xl bg-[#E7A6B5] text-white px-4 py-2 text-sm hover:bg-[#D68FA1]" type="submit">
+          Send request
         </button>
-        <p class="mt-3 text-sm text-stone-600">We’ll reply from <strong>Aloni@alonislittleden.com</strong>.</p>
+        <p class="mt-3 text-sm text-[#7A5E54]">We’ll reply from <strong>Aloni@alonislittleden.com</strong>.</p>
       </form>
 
-      <div class="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm text-sm">
-        <p><strong>Email:</strong> <a id="emailLink" href="#" class="text-emerald-700 underline">Aloni@alonislittleden.com</a></p>
+      <div class="bg-[#FFFBFB] border border-[#F4D8DE] rounded-2xl p-5 shadow-sm text-sm">
+        <p><strong>Email:</strong> <a id="emailLink" href="#" class="text-[#D68FA1] underline">Aloni@alonislittleden.com</a></p>
         <p class="mt-2"><strong>Phone:</strong> 916-879-3483</p>
-        <p class="mt-2 text-stone-600">Prefer to book instantly? Use the scheduler above for quickest confirmation.</p>
-        <details class="mt-4 text-xs text-stone-600">
-          <summary class="cursor-pointer">Privacy</summary>
-          I only use your info to coordinate care. No spam, no sharing. Delete requests anytime.
-        </details>
+        <p class="mt-2 text-[#7A5E54]">Prefer email or text? Use the options below.</p>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a href="mailto:Aloni@alonislittleden.com" class="rounded-xl border border-[#F4D8DE] px-4 py-2 text-sm hover:bg-white">Email Aloni</a>
+          <a href="tel:19168793483" class="rounded-xl border border-[#F4D8DE] px-4 py-2 text-sm hover:bg-white">Call</a>
+          <a href="sms:19168793483" class="rounded-xl border border-[#F4D8DE] px-4 py-2 text-sm hover:bg-white">Text</a>
+          <a href="https://www.alonislittleden.com" class="rounded-xl border border-[#F4D8DE] px-4 py-2 text-sm hover:bg-white">Website</a>
+        </div>
+        <div class="mt-4 text-xs text-[#7A5E54]">
+          *Availability is confirmed personally; booking is first-come, first-served.*
+        </div>
       </div>
     </div>
   </section>
 
-  <footer class="max-w-5xl mx-auto px-4 pb-10 text-xs text-stone-500">
-    <hr class="my-6 border-stone-200" />
-    <p>© <span id="year"></span> Childcare with Aloni. Families are the employer of record. Not legal advice.</p>
+  <footer class="max-w-5xl mx-auto px-4 pb-10 text-xs text-[#7A5E54]">
+    <hr class="my-6 border-[#F4D8DE]" />
+    <p>© <span id="year"></span> Aloni’s Little Den. Families are the employer of record. Not legal advice.</p>
   </footer>
 
-  <!-- Owner Panel (hidden unless ?owner=1) -->
-  <div id="ownerPanel"
-       class="hidden fixed bottom-4 right-4 z-50 rounded-xl bg-white/95 border border-stone-300 shadow-lg p-3 text-sm">
-    <div class="font-semibold mb-2">Owner quick links</div>
-    <div class="grid gap-2">
-      <a class="underline text-emerald-700" target="_blank"
-         href="https://formspree.io/forms/mblzkgrg/submissions">View contact form submissions</a>
-      <a class="underline text-emerald-700" target="_blank"
-         href="https://calendly.com">Open Calendly dashboard</a>
-    </div>
-  </div>
-
   <script>
-    // ======= Quick constants (edit if needed) =======
     const CONTACT_EMAIL = "Aloni@alonislittleden.com";
-    const CALENDLY_URL  = "CALENDLY_URL"; // <<— REPLACE with your real link
-
-    // Footer year & email link
+    document.getElementById("emailLink").href = `mailto:${CONTACT_EMAIL}`;
+    document.getElementById("emailLink").textContent = CONTACT_EMAIL;
     document.getElementById("year").textContent = new Date().getFullYear();
-    const emailEl = document.getElementById("emailLink");
-    emailEl.href = `mailto:${CONTACT_EMAIL}`;
-    emailEl.textContent = CONTACT_EMAIL;
-
-    // Calendly popup launcher used by the hero buttons
-    function openCalendly() {
-      if (window.Calendly) {
-        Calendly.initPopupWidget({ url: CALENDLY_URL + "?hide_gdpr_banner=1" });
-      } else {
-        // fallback: jump to the inline embed
-        location.hash = "#availability";
-      }
-    }
-    window.openCalendly = openCalendly;
-
-    // Show owner panel when visiting ?owner=1
-    (function () {
-      const params = new URLSearchParams(location.search);
-      if (params.get('owner') === '1') {
-        document.getElementById('ownerPanel').classList.remove('hidden');
-      }
-    })();
   </script>
 </body>
 </html>
