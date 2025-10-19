@@ -4,12 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Childcare with Aloni — Grass Valley</title>
-  <meta name="description" content="Trusted in-home childcare in Placer and Nevada County. Simple info and an easy request flow to contact Aloni." />
-  <!-- Tailwind via CDN (no build step) -->
+  <meta name="description" content="Trusted in-home childcare in Placer and Nevada County. Simple info and an easy scheduler to request time with Aloni." />
+  <!-- Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html { scroll-behavior: smooth; }
-  </style>
+  <!-- Calendly embed -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <style> html { scroll-behavior: smooth; } </style>
 </head>
 <body class="bg-stone-50 text-stone-800">
   <!-- Banner -->
@@ -27,18 +28,23 @@
         <a href="#availability" class="hover:text-emerald-700">Availability</a>
         <a href="#contact" class="hover:text-emerald-700">Contact</a>
       </nav>
-      <a href="#availability" class="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium bg-emerald-700 text-white hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-400">Request a Time</a>
+      <a href="#availability"
+         class="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium bg-emerald-700 text-white hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+         onclick="openCalendly(); return false;">Request a Time</a>
     </div>
 
     <section class="grid md:grid-cols-2 gap-8 items-center mt-10">
       <div>
-        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">Reliable in-home childcare so parents can breathe easy</h1>
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">
+          Reliable in-home childcare so parents can breathe easy
+        </h1>
         <p class="mt-4 text-stone-700">
           Hi, I’m <strong>Aloni</strong> — experienced with infants through school-age, CPR/First Aid, and a safe driver.
           I offer date-night sitting, part-time care, and school pick-ups in Placer and Nevada County.
         </p>
         <div class="mt-6 flex gap-3">
-          <a href="#availability" class="rounded-xl bg-emerald-700 text-white px-5 py-3 text-sm font-medium hover:bg-emerald-800">Check availability</a>
+          <a href="#availability" class="rounded-xl bg-emerald-700 text-white px-5 py-3 text-sm font-medium hover:bg-emerald-800"
+             onclick="openCalendly(); return false;">Check availability</a>
           <a href="#contact" class="rounded-xl border border-stone-300 px-5 py-3 text-sm font-medium hover:bg-stone-100">Ask a question</a>
         </div>
       </div>
@@ -87,32 +93,33 @@
     </div>
   </section>
 
-  <!-- Availability -->
+  <!-- Availability (Calendly) -->
   <section id="availability" class="max-w-5xl mx-auto px-4 py-10">
     <h2 class="text-2xl font-bold">Availability</h2>
-    <p class="mt-2 text-sm text-stone-700">Select a block below and send a request. I’ll confirm by text or email.</p>
+    <p class="mt-2 text-sm text-stone-700">
+      Choose a time below. You’ll get an email confirmation after booking.
+    </p>
 
-    <!-- Calendar controls -->
-    <div class="mt-4 flex items-center justify-between">
-      <div class="flex items-center gap-3 text-sm">
-        <button id="prevWeek" class="rounded-lg border border-stone-300 px-3 py-1.5 hover:bg-stone-100" aria-label="Previous week">←</button>
-        <button id="nextWeek" class="rounded-lg border border-stone-300 px-3 py-1.5 hover:bg-stone-100" aria-label="Next week">→</button>
-        <span id="rangeLabel" class="text-stone-600"></span>
-      </div>
-      <div class="text-xs text-stone-500">Timezone: <span id="tzLabel"></span></div>
+    <!-- ✳️ Replace CALENDLY_URL with your real link -->
+    <div class="mt-6">
+      <div class="calendly-inline-widget"
+           data-url="CALENDLY_URL?hide_gdpr_banner=1"
+           style="min-width:320px;height:720px;"></div>
     </div>
 
-    <!-- Calendar grid injected here -->
-    <div id="calendar" class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    <div class="mt-4 text-xs text-stone-500">
+      Tip: If you don’t see a time that works, use the contact form to request a custom slot.
+    </div>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="max-w-5xl mx-auto px-4 py-10">
     <h2 class="text-2xl font-bold">Contact</h2>
     <div class="mt-4 grid md:grid-cols-2 gap-6">
-      <!-- Contact form (Formspree) -->
+      <!-- Formspree contact form -->
       <form action="https://formspree.io/f/mblzkgrg" method="POST"
             class="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
+        <input type="hidden" name="_subject" value="New message from Aloni’s Little Den">
         <label class="block text-sm">Your Name
           <input required name="name" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2" />
         </label>
@@ -126,14 +133,16 @@
           <textarea name="message" rows="4" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2"></textarea>
         </label>
         <input type="text" name="company" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <button class="mt-4 rounded-xl bg-emerald-700 text-white px-4 py-2 text-sm hover:bg-emerald-800" type="submit">Send message</button>
+        <button class="mt-4 rounded-xl bg-emerald-700 text-white px-4 py-2 text-sm hover:bg-emerald-800" type="submit">
+          Send message
+        </button>
         <p class="mt-3 text-sm text-stone-600">We’ll reply from <strong>Aloni@alonislittleden.com</strong>.</p>
       </form>
 
       <div class="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm text-sm">
         <p><strong>Email:</strong> <a id="emailLink" href="#" class="text-emerald-700 underline">Aloni@alonislittleden.com</a></p>
         <p class="mt-2"><strong>Phone:</strong> 916-879-3483</p>
-        <p class="mt-2 text-stone-600">Prefer to book directly? Pick a block in the calendar and send a request—fastest way to reserve.</p>
+        <p class="mt-2 text-stone-600">Prefer to book instantly? Use the scheduler above for quickest confirmation.</p>
         <details class="mt-4 text-xs text-stone-600">
           <summary class="cursor-pointer">Privacy</summary>
           I only use your info to coordinate care. No spam, no sharing. Delete requests anytime.
@@ -147,221 +156,47 @@
     <p>© <span id="year"></span> Childcare with Aloni. Families are the employer of record. Not legal advice.</p>
   </footer>
 
-  <!-- Booking Modal -->
-  <div id="modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-4">
-    <div class="bg-white w-full max-w-md rounded-2xl p-6 shadow-xl">
-      <h3 class="text-lg font-semibold">Request this time</h3>
-      <p id="modalSlot" class="mt-1 text-sm text-stone-600"></p>
-      <form id="requestForm" class="mt-4">
-        <div class="grid grid-cols-1 gap-3">
-          <label class="text-sm">Your Name<input required name="name" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2" /></label>
-          <label class="text-sm">Email<input required name="email" type="email" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2" /></label>
-          <label class="text-sm">Phone<input required name="phone" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2" /></label>
-          <label class="text-sm">Kids’ ages & notes<textarea name="notes" rows="3" class="mt-1 w-full rounded-lg border border-stone-300 px-3 py-2"></textarea></label>
-          <input type="text" name="nickname" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        </div>
-        <div class="mt-5 flex justify-end gap-2">
-          <button type="button" id="closeModal" class="rounded-lg border border-stone-300 px-4 py-2 text-sm hover:bg-stone-100">Cancel</button>
-          <button type="submit" class="rounded-lg bg-emerald-700 text-white px-4 py-2 text-sm hover:bg-emerald-800">Send Request</button>
-        </div>
-        <p id="requestStatus" class="mt-3 text-sm"></p>
-      </form>
-    </div>
-  </div>
-
   <!-- Owner Panel (hidden unless ?owner=1) -->
   <div id="ownerPanel"
        class="hidden fixed bottom-4 right-4 z-50 rounded-xl bg-white/95 border border-stone-300 shadow-lg p-3 text-sm">
     <div class="font-semibold mb-2">Owner quick links</div>
     <div class="grid gap-2">
       <a class="underline text-emerald-700" target="_blank"
-         href="https://github.com/MAHurtado17/alonis-childcare/edit/main/availability.json">Edit availability.json</a>
-      <a class="underline text-emerald-700" target="_blank"
          href="https://formspree.io/forms/mblzkgrg/submissions">View contact form submissions</a>
-      <!-- If you create a separate booking form, add its submissions link too:
       <a class="underline text-emerald-700" target="_blank"
-         href="https://formspree.io/forms/YOUR_BOOKING_FORM_ID/submissions">View booking requests</a>
-      -->
+         href="https://calendly.com">Open Calendly dashboard</a>
     </div>
   </div>
 
-  <!-- Logic -->
   <script>
-    /* =====================
-      QUICK SETUP — EDIT THIS
-    ====================== */
+    // ======= Quick constants (edit if needed) =======
     const CONTACT_EMAIL = "Aloni@alonislittleden.com";
-    const CONTACT_PHONE = "916-879-3483";
-    // You can use a separate Formspree endpoint for booking requests if you like:
-    const BOOKING_FORMSPREE_ENDPOINT = "https://formspree.io/f/mblzkgrg"; // change if you make a dedicated booking form
+    const CALENDLY_URL  = "CALENDLY_URL"; // <<— REPLACE with your real link
 
-    // Populate contact info (sidebar + footer)
-    document.getElementById("emailLink").href = `mailto:${CONTACT_EMAIL}`;
-    document.getElementById("emailLink").textContent = CONTACT_EMAIL;
-    document.querySelector("#contact div p:nth-child(2)").innerHTML = `<strong>Phone:</strong> ${CONTACT_PHONE}`;
+    // Footer year & email link
     document.getElementById("year").textContent = new Date().getFullYear();
+    const emailEl = document.getElementById("emailLink");
+    emailEl.href = `mailto:${CONTACT_EMAIL}`;
+    emailEl.textContent = CONTACT_EMAIL;
 
-    // Timezone label
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "local time";
-    document.getElementById("tzLabel").textContent = tz;
-
-    // Helpers
-    const fmtDate = (d) => d.toLocaleDateString(undefined, { weekday:'short', month:'short', day:'numeric' });
-    const startOfDay = (d) => { const x = new Date(d); x.setHours(0,0,0,0); return x; };
-    const addDays = (d,n) => { const x = new Date(d); x.setDate(x.getDate()+n); return x; };
-
-    // Availability loaded from availability.json (so Aloni can edit without code)
-    let weeklyAvailability = {}; // will load from JSON
-
-    async function loadAvailability() {
-      try {
-        const res = await fetch('./availability.json', { cache: 'no-store' });
-        weeklyAvailability = await res.json();
-        buildWeeks(0);
-      } catch (e) {
-        console.error('Availability load failed:', e);
-        // Safe fallback: empty schedule
-        weeklyAvailability = { 0:[],1:[],2:[],3:[],4:[],5:[],6:[] };
-        buildWeeks(0);
+    // Calendly popup launcher used by the hero buttons
+    function openCalendly() {
+      if (window.Calendly) {
+        Calendly.initPopupWidget({ url: CALENDLY_URL + "?hide_gdpr_banner=1" });
+      } else {
+        // fallback: jump to the inline embed
+        location.hash = "#availability";
       }
     }
+    window.openCalendly = openCalendly;
 
-    function buildWeeks(offsetWeeks = 0) {
-      const WEEKS_VISIBLE = 2;
-      const today = startOfDay(new Date());
-      const start = addDays(today, offsetWeeks * 7);
-      const end = addDays(start, (WEEKS_VISIBLE * 7) - 1);
-      document.getElementById('rangeLabel').textContent = `${fmtDate(start)} – ${fmtDate(end)}`;
-
-      const cal = document.getElementById('calendar');
-      cal.innerHTML = '';
-      const total = WEEKS_VISIBLE * 7;
-
-      for (let i = 0; i < total; i++) {
-        const day = addDays(start, i);
-        const weekday = day.getDay();
-        const blocks = weeklyAvailability[weekday] || [];
-
-        const card = document.createElement('article');
-        card.className = 'bg-white border border-stone-200 rounded-2xl p-5 shadow-sm flex flex-col';
-        const h = document.createElement('h3');
-        h.className = 'font-semibold';
-        h.textContent = fmtDate(day);
-        card.appendChild(h);
-
-        const wrap = document.createElement('div');
-        wrap.className = 'mt-3 flex flex-wrap gap-2';
-
-        if (blocks.length === 0) {
-          const none = document.createElement('p');
-          none.className = 'text-sm text-stone-500';
-          none.textContent = 'No availability';
-          wrap.appendChild(none);
-        } else {
-          for (const b of blocks) {
-            const btn = document.createElement('button');
-            btn.className = 'rounded-lg border border-stone-300 px-3 py-1.5 text-sm hover:bg-stone-100';
-            btn.textContent = humanizeBlock(b);
-            btn.addEventListener('click', () => openModal(day, b));
-            wrap.appendChild(btn);
-          }
-        }
-        card.appendChild(wrap);
-
-        const small = document.createElement('p');
-        small.className = 'mt-3 text-xs text-stone-500';
-        small.textContent = '3-hour minimum';
-        card.appendChild(small);
-
-        cal.appendChild(card);
-      }
-    }
-
-    function humanizeBlock(block) {
-      // "17:00-21:00" → "5:00 – 9:00 PM"
-      const [s,e] = block.split('-');
-      const d = new Date();
-      const [sh, sm] = s.split(':').map(Number);
-      const [eh, em] = e.split(':').map(Number);
-      const sDate = new Date(d.getFullYear(), d.getMonth(), d.getDate(), sh, sm);
-      const eDate = new Date(d.getFullYear(), d.getMonth(), d.getDate(), eh, em);
-      const sText = sDate.toLocaleTimeString([], { hour:'numeric', minute:'2-digit' });
-      const eText = eDate.toLocaleTimeString([], { hour:'numeric', minute:'2-digit' });
-      return `${sText} – ${eText}`;
-    }
-
-    // Modal logic
-    let weekOffset = 0;
-    const modal = document.getElementById('modal');
-    const modalSlot = document.getElementById('modalSlot');
-    const requestForm = document.getElementById('requestForm');
-    const requestStatus = document.getElementById('requestStatus');
-
-    function openModal(day, block) {
-      const dateLabel = day.toLocaleDateString([], { weekday:'long', month:'long', day:'numeric' });
-      modal.dataset.dateISO = day.toISOString();
-      modal.dataset.block = block;
-      modalSlot.textContent = `${dateLabel}, ${humanizeBlock(block)}`;
-      requestStatus.textContent = '';
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-    function closeModal() {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      requestForm.reset();
-    }
-    document.getElementById('closeModal').addEventListener('click', closeModal);
-
-    // Booking form → send to Formspree as JSON (so Aloni accepts/declines from her inbox)
-    requestForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const fd = new FormData(requestForm);
-      if (fd.get('nickname')) return; // honeypot
-
-      const name  = fd.get('name');
-      const email = fd.get('email');
-      const phone = fd.get('phone');
-      const notes = (fd.get('notes') || '').toString();
-
-      const when = new Date(modal.dataset.dateISO);
-      const block = modal.dataset.block;
-      const whenLabel = `${when.toLocaleDateString([], { weekday:'long', month:'long', day:'numeric' })}, ${humanizeBlock(block)}`;
-
-      const payload = { name, email, phone, notes, requested_time: whenLabel };
-
-      try {
-        const resp = await fetch(BOOKING_FORMSPREE_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        if (resp.ok) {
-          requestStatus.textContent = "Request sent! We’ll confirm by email/text.";
-          setTimeout(closeModal, 1200);
-        } else {
-          requestStatus.textContent = "Something went wrong. Please email us at " + CONTACT_EMAIL + ".";
-        }
-      } catch (err) {
-        requestStatus.textContent = "Network issue. Please email us at " + CONTACT_EMAIL + ".";
-      }
-    });
-
-    // Calendar pagination
-    document.getElementById('prevWeek').addEventListener('click', () => { weekOffset = Math.max(0, weekOffset - 1); buildWeeks(weekOffset); });
-    document.getElementById('nextWeek').addEventListener('click', () => { weekOffset += 1; buildWeeks(weekOffset); });
-
-    // Owner Panel toggle (add ?owner=1 to URL)
-    (function(){
+    // Show owner panel when visiting ?owner=1
+    (function () {
       const params = new URLSearchParams(location.search);
       if (params.get('owner') === '1') {
         document.getElementById('ownerPanel').classList.remove('hidden');
       }
     })();
-
-    // Initial render (loads availability from JSON)
-    loadAvailability();
   </script>
 </body>
 </html>
